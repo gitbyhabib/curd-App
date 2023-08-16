@@ -22,11 +22,11 @@
       </nav>
 
 
-      @if($message = session::get('success'))
+     {{--  @if($message = session::get('success'))
       <div class="alert alert-success alert-block">
         <strong>{{$message}}</strong>
       </div>
-      @endif
+      @endif --}}
 
     <div class="container">
         <div class="row justify-content-center">
@@ -36,18 +36,18 @@
                     @csrf
                     <div class="form-group">
                         <label for="">Name</label>
-                        <input type="text" name="name"  class="form-control" required>
+                        <input type="text" name="name"  class="form-control" >
                         @if ($errors->has('name'))
                         <span class="text-danger">{{$errors->first('name')}}</span>
                         @endif
                     </div>
                     <div class="form-group">
                         <label for="description">Description</label>
-                        <textarea name="description" id="" cols="40" rows="5"></textarea required>                       
+                        <textarea name="description" id="" cols="40" rows="5"></textarea>                       
                     </div>
                     <div class="form-group">
                         <label for="">Image</label>
-                        <input type="file" name="image" class="form-control" required>
+                        <input type="file" name="image" class="form-control">
                     </div>
                     
 

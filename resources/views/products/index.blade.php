@@ -27,6 +27,36 @@
             <a  href="/products/create" class="btn btn-dark mt-2">New Product</a>
         </div>
         <h1>Products</h1>
+
+         <table class="table">
+    <thead>
+      <tr>
+        <th>SL</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Image</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      @foreach ( $products as $product )
+          
+    
+      <tr>
+        <td>{{$product->id}}</td>
+        <td>{{$product->name}}</td>
+        <td>{{$product->description}}</td>
+        <td> <img src="products/{{$product->image}}" alt=""class="rounded-circle" height="50" width="50" > </td>
+        <td><a  href="/product/{{$product->id}}" class="btn btn-primary">Edit</a> <form action="/product/{{$product->id}}" method="post">@csrf  @method('DELETE')<button class="btn btn-danger">Delete</button></form>
+        </td>
+      </tr>
+        @endforeach
+        
+    </tbody>
+    
+  </table>
+  {!!$products->links()!!}
     </div>
     
 </body>
